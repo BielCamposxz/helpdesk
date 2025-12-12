@@ -1,0 +1,60 @@
+﻿@model UsuarioModel
+@using HelpDesk.Enums
+@{
+    ViewData["Title"] = "Editar um usuarios";
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+        <div class="toast show toast-shor" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Error</strong>
+                <small>Agora</small>
+                <button type="button" class="btn-close" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensagemErro"]
+            </div>
+        </div>
+    </div>
+}
+
+<h1 class="text-center">Pagina de Edicao de usuario</h1>
+
+<form method="post" asp-action="Editar" asp-controller="Usuario">
+    <input type="hidden" asp-for="Id">
+    <div class="mb-3">
+        <label for="Nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="Nome" asp-for="Nome">
+        @Html.ValidationMessageFor(o => o.Nome)
+    </div>
+    <div class="mb-3">
+        <label for="Login" class="form-label">Login</label>
+        <input type="text" class="form-control" id="Login" asp-for="Login">
+        @Html.ValidationMessageFor(o => o.Login)
+
+    </div>
+    <div class="mb-3">
+        <label for="Senha" class="form-label">Senha</label>
+        <input type="text" class="form-control" asp-for="Senha">
+        @Html.ValidationMessageFor(o => o.Senha)
+
+    </div>
+    <div class="mb-3">
+        <label for="Privilegio" class="form-label">Privilegio</label>
+
+        <select class="form-select form-select-lg text-center" id="Privilegio"asp-for="Priviegio">
+            <option value="" disabled selected>Selecione o privilerio da conta criada</option>
+            <option value="@PrivilegiosEnum.Usuario">Usuario</option>
+            <option value="@PrivilegiosEnum.Tecnico">Tecnico</option>
+        </select>
+        @Html.ValidationMessageFor(o => o.Priviegio)
+
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Editar</button>
+    <a role="button" class="btn btn-secondary" asp-action="Index" asp-controller="Usuario">Voltar</a>
+</form>
+

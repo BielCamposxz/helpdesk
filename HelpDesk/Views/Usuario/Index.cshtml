@@ -1,0 +1,88 @@
+﻿@model List<UsuarioModel>
+@{
+    ViewData["title"] = "Controle De usuario";
+}
+
+@if(TempData["MensagemErro"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+        <div class="toast show toast-shor" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Error</strong>
+                <small>Agora</small>
+                <button type="button" class="btn-close" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensagemErro"]
+            </div>
+        </div>
+    </div>
+} 
+
+@if(TempData["MensagemSucesso"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+        <div class="toast show toast-shor" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Acao concluda com sucesso</strong>
+                <small>Agora</small>
+                <button type="button" class="btn-close" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensagemSucesso"]
+            </div>
+        </div>
+    </div>
+} 
+
+
+<h1 class="text-center">Pagina para o controle de usuarios</h1>
+
+
+<div class="d-flex justify-content-start">
+    <a role="button" class="btn btn-primary" asp-action="Criar" asp-controller="Usuario">
+        Criar Usuário
+    </a>
+</div>
+
+<div class="text-center">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Login</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Priviegio</th>
+                <th scope="col">Data de criacao</th>
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if(Model != null)
+            {
+                foreach(UsuarioModel usuario in Model)
+                {
+                    <tr>
+                        <th scope="row">@usuario.Id</th>
+                        <td>@usuario.Nome</td>
+                        <td>@usuario.Login</td>
+                        <td>@usuario.Senha</td>
+                        <td>@usuario.Priviegio</td>
+                        <td>@usuario.DataDeCriacao.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a role="button" class="btn btn-primary"  asp-action="Editar" asp-controller="Usuario" asp-route-Id="@usuario.Id">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-Id="@usuario.Id">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            
+        </tbody>
+    </table>
+</div>
+
