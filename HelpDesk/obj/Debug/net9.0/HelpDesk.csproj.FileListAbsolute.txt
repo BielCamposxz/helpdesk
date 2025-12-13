@@ -242,8 +242,6 @@ C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\qu610
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\msz58n57dy-muycvpuwrr.gz
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\9c3uqvd11t-87fc7y1x7t.gz
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\6oqyzza1uu-mlv21k5csn.gz
-C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\wnhecnawya-09r5msw2h6.gz
-C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\zj3em91ght-09r5msw2h6.gz
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\staticwebassets.development.json
@@ -258,3 +256,7 @@ C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\ref\HelpDesk.dll
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\k0gpxespf0-fpsijipki6.gz
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\8cn1iia1sw-hajr30ufgj.gz
 C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\HelpDesk.sourcelink.json
+C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\scopedcss\Views\Shared\_LayoutLogin.cshtml.rz.scp.css
+C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\wnhecnawya-uvqvnq22nq.gz
+C:\Users\figue\Meus projetos\HelpDesk\HelpDesk\obj\Debug\net9.0\compressed\zj3em91ght-uvqvnq22nq.gz
