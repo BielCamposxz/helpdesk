@@ -1,4 +1,5 @@
 using HelpDesk.Data;
+using HelpDesk.Helper;
 using HelpDesk.Repositorios.Chamados;
 using HelpDesk.Repositorios.Informacoes;
 using HelpDesk.Repositorios.Usuario;
@@ -8,10 +9,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 var stringDeConecao = builder.Configuration.GetConnectionString("DataBase");
 builder.Services.AddDbContext<BancoContext>(o => o.UseMySql(stringDeConecao, ServerVersion.AutoDetect(stringDeConecao)));
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+   
 
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 builder.Services.AddScoped<IChamadoInformacoesRepositorio, ChamadoInformacoesRepositorio>();
 builder.Services.AddScoped<IChamadoRepositorio, ChamadoRepositorio>();
+builder.Services.AddScoped<HelpDesk.Helper.ISession, Session>();
+
+builder.Services.AddSession(o =>
+{
+    o.Cookie.HttpOnly = true;
+    o.Cookie.IsEssential = true;
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -30,6 +40,9 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
+
 
 app.MapStaticAssets();
 
