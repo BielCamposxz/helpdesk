@@ -12,92 +12,96 @@
 
         <h6 class="fw-semibold mb-4">Descreva o incidente ou a requisição</h6>
 
-        <div class="mb-3">
-            <label class="form-label">Tipo</label>
-            <select class="form-select form-select-sm" id="Tipo">
-                <option value="@TipoEnum.None" disabled selected>-----</option>
-                @if(Model.ListaTipo != null)
-                {
-                    foreach(TipoModel tipo in Model.ListaTipo)
-                    {
-                        <option value="@tipo.Tipo">@tipo.Tipo</option>
-                    }
-                }
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Categoria</label>
-            <select class="form-select form-select-sm" id="Categoria">
-                <option value="@CategoriaEnum.None" disabled selected>-----</option>
-                @if (Model.ListaCategoria != null)
-                {
-                    foreach (CategoriaModel categoria in Model.ListaCategoria)
-                    {
-                        <option value="@categoria.Categoria">@categoria.Categoria</option>
-                    }
-                }
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Urgência</label>
-            <select class="form-select form-select-sm">
-                <option value="@UrgenciaEnum.None" disabled selected>-----</option>
-                <option value="@UrgenciaEnum.Baixa">Baixa</option>
-                <option value="@UrgenciaEnum.Media">Média</option>
-                <option value="@UrgenciaEnum.Alta">Alta</option>
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Localização</label>
-            <select class="form-select form-select-sm">
-                <option value="@LocalizacaoEnum.None" disabled selected>-----</option>
-                @if (Model.ListaLocalizacao != null)
-                {
-                    foreach (LocalizacaoModel localizacao in Model.ListaLocalizacao)
-                    {
-                        <option value="@localizacao.Localizacao">@localizacao.Localizacao</option>
-                    }
-                }
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label label-required">Título</label>
-            <input type="text" class="form-control form-control-sm" placeholder="Digite o título..." />
-        </div>
-
-        <div class="card p-3 mb-3 border description-area">
-
-            <h6 class="fw-semibold mb-3">Descrição do Problema</h6>
+        <form method="post">
+            
 
             <div class="mb-3">
-                <label class="form-label small">IP do computador</label>
-                <input type="text" class="form-control form-control-sm" placeholder="Ex: 10.0.27.113">
+                <label class="form-label">Tipo</label>
+                <select class="form-select form-select-sm" id="Tipo">
+                    <option value="@TipoEnum.None" disabled selected>-----</option>
+                    @if(Model.ListaTipo != null)
+                    {
+                        foreach(TipoModel tipo in Model.ListaTipo)
+                        {
+                            <option value="@tipo.Tipo">@tipo.Tipo</option>
+                        }
+                    }
+                </select>
             </div>
 
             <div class="mb-3">
-                <label class="form-label small">Ramal</label>
-                <input type="text" class="form-control form-control-sm" placeholder="...">
+                <label class="form-label">Categoria</label>
+                <select class="form-select form-select-sm" id="Categoria">
+                    <option value="@CategoriaEnum.None" disabled selected>-----</option>
+                    @if (Model.ListaCategoria != null)
+                    {
+                        foreach (CategoriaModel categoria in Model.ListaCategoria)
+                        {
+                            <option value="@categoria.Categoria">@categoria.Categoria</option>
+                        }
+                    }
+                </select>
             </div>
 
             <div class="mb-3">
-                <label class="form-label small">Nome Completo</label>
-                <input type="text" class="form-control form-control-sm" placeholder="...">
+                <label class="form-label">Urgência</label>
+                <select class="form-select form-select-sm">
+                    <option value="@UrgenciaEnum.None" disabled selected>-----</option>
+                    <option value="@UrgenciaEnum.Baixa">Baixa</option>
+                    <option value="@UrgenciaEnum.Media">Média</option>
+                    <option value="@UrgenciaEnum.Alta">Alta</option>
+                </select>
             </div>
 
-            <div class="mb-2">
-                <label class="form-label small">Descrição detalhada</label>
-                <textarea type="text" class="form-control form-control-sm" placeholder="Descreva o problema..."></textarea>
+            <div class="mb-3">
+                <label class="form-label">Localização</label>
+                <select class="form-select form-select-sm">
+                    <option value="@LocalizacaoEnum.None" disabled selected>-----</option>
+                    @if (Model.ListaLocalizacao != null)
+                    {
+                        foreach (LocalizacaoModel localizacao in Model.ListaLocalizacao)
+                        {
+                            <option value="@localizacao.Localizacao">@localizacao.Localizacao</option>
+                        }
+                    }
+                </select>
             </div>
 
-        </div>
+            <div class="mb-3">
+                <label class="form-label label-required">Título</label>
+                <input type="text" class="form-control form-control-sm" placeholder="Digite o título..." />
+            </div>
 
-        <div class="text-end">
-            <button class="btn btn-primary btn-sm px-4">Enviar Chamado</button>
-        </div>
+            <div class="card p-3 mb-3 border description-area">
+
+                <h6 class="fw-semibold mb-3">Descrição do Problema</h6>
+
+                <div class="mb-3">
+                    <label class="form-label small">IP do computador</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Ex: 10.0.27.113">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small">Ramal</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="...">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small">Nome Completo</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="...">
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label small">Descrição detalhada</label>
+                    <textarea type="text" class="form-control form-control-sm" placeholder="Descreva o problema..."></textarea>
+                </div>
+
+            </div>
+
+            <div class="text-end">
+                <button class="btn btn-primary btn-sm px-4" type="submit">Enviar Chamado</button>
+            </div>
+        </form>
 
     </div>
 

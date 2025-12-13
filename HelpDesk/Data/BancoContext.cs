@@ -15,6 +15,7 @@ namespace HelpDesk.Data
         public DbSet<TipoModel> Tipos { get; set; }
         public DbSet<CategoriaModel> Categorias { get; set; }
         public DbSet<LocalizacaoModel> Localizacoes { get; set; }
+        public DbSet<ChamadoModel> Chamados { get; set; }
 
     }
 }
