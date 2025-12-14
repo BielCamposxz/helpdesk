@@ -19,5 +19,18 @@ namespace HelpDesk.Models
         [Required(ErrorMessage = "Escolha um tipo de usuario valido")]
         public PrivilegiosEnum Priviegio { get; set; } = PrivilegiosEnum.Usuario;
         public DateTime DataDeCriacao { get; set; }
+
+
+        public bool ValidarSenha(string senha)
+        {
+            if (Senha == senha)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

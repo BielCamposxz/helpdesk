@@ -1,4 +1,5 @@
-﻿using HelpDesk.Models;
+﻿using HelpDesk.Helper;
+using HelpDesk.Models;
 using HelpDesk.Repositorios.Usuario;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +8,13 @@ namespace HelpDesk.Controllers
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
+        private readonly ISessionUser _sessaoUser;
 
-        public UsuarioController(IUsuarioRepositorio usuarioRepositorio)
+
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, ISessionUser sessaoUser)
         {
             _usuarioRepositorio = usuarioRepositorio;
+            _sessaoUser = sessaoUser;
         }
 
         public IActionResult Index()
@@ -44,6 +48,7 @@ namespace HelpDesk.Controllers
                 if (ModelState.IsValid)
                 {
                     _usuarioRepositorio.CriarUsuario(usuario);
+                    _sessaoUser.CriarSessao(usuario);
                     TempData["MensagemSucesso"] = "Usuario Criado com sucesso";
                     return RedirectToAction("Index");
 

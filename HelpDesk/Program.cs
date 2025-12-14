@@ -2,6 +2,7 @@ using HelpDesk.Data;
 using HelpDesk.Helper;
 using HelpDesk.Repositorios.Chamados;
 using HelpDesk.Repositorios.Informacoes;
+using HelpDesk.Repositorios.Login;
 using HelpDesk.Repositorios.Usuario;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 builder.Services.AddScoped<IChamadoInformacoesRepositorio, ChamadoInformacoesRepositorio>();
 builder.Services.AddScoped<IChamadoRepositorio, ChamadoRepositorio>();
 builder.Services.AddScoped<ISessionUser, Session>();
+builder.Services.AddScoped<ILogin, Login>();
 
 builder.Services.AddSession(o =>
 {

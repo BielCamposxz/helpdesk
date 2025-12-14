@@ -20,7 +20,7 @@ namespace HelpDesk.Repositorios.Chamados
             chamado.DataAbertura = DateTime.Now;
             chamado.Status = Enums.StatusEnum.aberto;
             chamado.DataAtualizacao = DateTime.Now;
-            chamado.UsuarioId = 1;
+            chamado.UsuarioId = _sessionUser.BuscarSessao().Id;
            _bancoContext.Chamados.Add(chamado);
            _bancoContext.SaveChanges();
            return chamado;
