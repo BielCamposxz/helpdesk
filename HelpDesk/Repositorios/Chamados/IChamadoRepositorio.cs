@@ -5,5 +5,7 @@ namespace HelpDesk.Repositorios.Chamados
     public interface IChamadoRepositorio
     {
         public ChamadoModel CriarChamado(ChamadoModel chamado);
+
+        public List<ChamadoModel> BuscarChamados();
     }
 }

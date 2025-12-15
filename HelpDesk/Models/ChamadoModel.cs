@@ -6,7 +6,7 @@ namespace HelpDesk.Models
     public class ChamadoModel
     {
         public int Id { get; set; }
-        public int UsuarioId { get; set; }
+        public string? UsuarioLogin { get; set; }
         public int? TecnicoId { get; set; }
 
         public StatusEnum Status { get; set; }

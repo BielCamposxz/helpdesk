@@ -113,7 +113,7 @@
                             <ul class="nav flex-column mt-2 submenu">
 
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center fw-semibold text-dark submenu-link" href="#">
+                                    <a class="nav-link d-flex align-items-center fw-semibold text-dark submenu-link" asp-action="Index" asp-controller="Chamados">
                                         <i class="bi bi-exclamation-circle fs-5 me-3"></i>
                                         Chamados
                                     </a>
@@ -144,7 +144,7 @@
             @if (usuario.Priviegio == HelpDesk.Enums.PrivilegiosEnum.Usuario)
             {
                 <a asp-action="Index" asp-controller="Home"
-                   class="nav-link d-flex align-items-center fw-semibold text-muted mb-2">
+                   class="nav-link d-flex align-items-center fw-semibold text-muted mb-3">
                     <i class="bi bi-arrow-left fs-5 me-3" ></i>
                     Voltar para Menu
                 </a>
@@ -152,14 +152,14 @@
                 <ul class="nav nav-pills flex-column">
 
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center fw-semibold text-dark mb-2" style="padding: 0;">
+                        <a class="nav-link d-flex align-items-center fw-semibold text-dark mb-3" style="padding: 0;" asp-action="Index" asp-controller="Chamados">
                             <i class="bi bi-exclamation-circle fs-5 me-3"></i>
                             Chamados
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center fw-semibold text-dark mb-2"
+                        <a class="nav-link d-flex align-items-center fw-semibold text-dark mb-3"
                            asp-action="Index" asp-controller="CriarChamado" style="padding: 0;">
                             <i class="bi bi-plus fs-5 me-3"></i>
                             Criar chamado

@@ -20,11 +20,28 @@ namespace HelpDesk.Repositorios.Chamados
             chamado.DataAbertura = DateTime.Now;
             chamado.Status = Enums.StatusEnum.aberto;
             chamado.DataAtualizacao = DateTime.Now;
-            chamado.UsuarioId = _sessionUser.BuscarSessao().Id;
+            chamado.UsuarioLogin = _sessionUser.BuscarSessao().Login;
            _bancoContext.Chamados.Add(chamado);
            _bancoContext.SaveChanges();
            return chamado;
         }
 
+        public List<ChamadoModel> BuscarChamados()
+        {
+            UsuarioModel usuario = _sessionUser.BuscarSessao();
+
+            if(usuario.Priviegio == Enums.PrivilegiosEnum.Tecnico)
+            {
+                return _bancoContext.Chamados.ToList();
+            }
+            else
+            {
+                string idUsuario = usuario.Login;
+                return _bancoContext.Chamados.Where(o => o.UsuarioLogin == idUsuario).ToList();
+
+            }
+        }
+
+    
     }
 }

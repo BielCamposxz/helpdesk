@@ -1,0 +1,106 @@
+﻿@model List<ChamadoModel>
+@{
+    ViewData["title"] = "Chamados";
+}
+
+@{
+    var httpContextAccessor = new HttpContextAccessor();
+    var helper = new HelpDesk.Helper.Session(httpContextAccessor);
+    var usuario = helper.BuscarSessao();
+}
+
+
+<div>
+    <h1>Chamados</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">TITULO</th>
+            <th scope="col">DATA DE ABERTURA</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">REQUERENTE</th>
+            <th scope="col">LOCALIZACAO</th>
+            <th scope="col">ATRIBUIDO</th>
+            <th scope="col">TIPO</th>
+            <th scope="col">CATEGORIA</th>
+            <th scope="col">PRIORIADE</th>
+            <th scope="col">ULTIMA ATUALIZACAO</th>
+        </tr>
+    </thead>
+    <tbody>
+            @if(Model != null)
+            {
+                foreach(ChamadoModel chamado in Model)
+                {
+                    <tr>
+                        <th scope="row">@chamado.Id</th>
+                        <td>@chamado.Titulo</td>
+                        <td>@chamado.DataAbertura.ToString("dd/MM/yyyy - HH:mm")</td>
+                        <td>
+                        @if (chamado.Status == HelpDesk.Enums.StatusEnum.aberto)
+                        {
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="status-circle status-open">
+                                </div>
+                                <span class="status-text status-open-text">Aberto</span>
+                            </div>
+                        }
+                        @if(chamado.Status == HelpDesk.Enums.StatusEnum.Atribuido)
+                        {
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="status-circle status-open-outline">
+                                </div>
+                                <span class="status-text status-open-text">Atribuido</span>
+                            </div>
+
+                        }
+                        @if(chamado.Status == HelpDesk.Enums.StatusEnum.Solucionado)
+                        {
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="status-circle status-solicionado-outline">
+                                </div>
+                                <span class="status-text status-feito-text">Solucionado</span>
+                            </div>
+                        }
+                        @if(chamado.Status == HelpDesk.Enums.StatusEnum.Fechado)
+                        {
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="status-circle status-fechado">
+                                </div>
+                                <span class="status-text status-feito-text">Fechado</span>
+                            </div>
+                        }
+
+                        </td>
+                        <td>@chamado.UsuarioLogin</td>
+                        <td>@chamado.Localizacao</td>
+                        <td>Gabriel campos</td>
+                        <td>@chamado.Tipo</td>
+                        <td>@chamado.Categoria</td>
+                        <td>
+                            @if(chamado.Urgencia == HelpDesk.Enums.UrgenciaEnum.Baixa)
+                            {
+                                <p>Baixa</p>
+
+                            }
+                            @if(chamado.Urgencia == HelpDesk.Enums.UrgenciaEnum.Media)
+                            {
+                                <p>Media</p>
+
+                            }
+                            @if(chamado.Urgencia == HelpDesk.Enums.UrgenciaEnum.Alta)
+                            {
+                                <p>Alta</p>
+                            }
+                        </td>
+                    <td>@chamado.DataAtualizacao.ToString()</td>
+                </tr>
+                }
+            }
+            
+        
+    </tbody>
+</table>

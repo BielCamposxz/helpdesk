@@ -191,3 +191,54 @@ textarea {
     border-radius: 10px;
     border: 1px solid #e6e6e6 !important;
 }
+
+.status-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.status-open {
+    background-color: #00e676; /* verde bem vivo */
+    color: #0f3d1f;
+    box-shadow: 0 0 6px rgba(0, 230, 118, 0.9);
+}
+
+.status-text {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.status-open-text {
+    color: #00c853;
+}
+
+
+.status-open-outline {
+    border: 2px solid #00e676; 
+    background-color: transparent;
+    box-shadow: 0 0 4px rgba(0, 230, 118, 0.6);
+}
+
+
+.status-solicionado-outline {
+    border: 2px solid black; 
+    background-color: transparent;
+}
+
+.status-fechado {
+    background-color: black; 
+    color: #0f3d1f;
+}
+
+
+.status-feito-text {
+    color: black;
+}
+
+
